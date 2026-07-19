@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import {
-  LineChart, Line, BarChart, Bar, XAxis, YAxis,
+  BarChart, Bar, XAxis, YAxis,
   CartesianGrid, Tooltip, ResponsiveContainer,
   Cell, AreaChart, Area
 } from 'recharts';
@@ -164,7 +164,7 @@ export default function App() {
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `£${v}`} />
               <Tooltip formatter={(v, name) => [`£${Number(v).toFixed(2)}`, name === 'Net_Sales' ? 'Daily Sales' : '7-day Avg']} />
               <Area type="monotone" dataKey="Net_Sales" stroke={BLUE} fill="url(#salesGrad)" strokeWidth={2} dot={{ r: 3, fill: BLUE }} />
-              <Line type="monotone" dataKey="rolling7" stroke={AMBER} strokeWidth={2} dot={false} strokeDasharray="5 3" />
+              <Area type="monotone" dataKey="rolling7" stroke={AMBER} strokeWidth={2} dot={false} strokeDasharray="5 3" fill="none" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
